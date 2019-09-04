@@ -6,12 +6,12 @@ import com.easyway.demomvp.model.LoginData;
 import com.easyway.demomvp.model.LoginOpenrtionImpl;
 import com.easyway.demomvp.view.ILoginView;
 
-public class LoginPresenterImpl extends BasePresenter<ILoginView> {
+public class LoginPresenter extends BasePresenter<ILoginView> {
 
     private ILoginView loginview;
     private LoginOpenrtionImpl oper;
 
-    public LoginPresenterImpl(ILoginView view){
+    public LoginPresenter(ILoginView view){
         this.loginview=view;
         this.oper=new LoginOpenrtionImpl();
     }

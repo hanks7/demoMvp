@@ -6,15 +6,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.easyway.demomvp.presenter.LoginPresenterImpl;
+import com.easyway.demomvp.presenter.LoginPresenter;
 import com.easyway.demomvp.R;
 import com.easyway.demomvp.base.BaseActivity;
 
-public class LoginActivity extends BaseActivity<ILoginView, LoginPresenterImpl> implements ILoginView {
+public class LoginActivity extends BaseActivity<ILoginView, LoginPresenter> implements ILoginView {
 
     private EditText nameEdit, passwordEdit;
     private Button button;
-    private LoginPresenterImpl presenter;
+    private LoginPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,19 +25,15 @@ public class LoginActivity extends BaseActivity<ILoginView, LoginPresenterImpl> 
     }
 
     @Override
-    protected LoginPresenterImpl createPresenter() {
-        presenter = new LoginPresenterImpl(this);
+    protected LoginPresenter createPresenter() {
+        presenter = new LoginPresenter(this);
         return presenter;
     }
 
     private void initView() {
-
-
         nameEdit = findViewById(R.id.edt_account);
         passwordEdit = findViewById(R.id.edt_password);
         button = findViewById(R.id.btn_commit);
-
-
     }
 
     private void initClickListener() {
@@ -52,7 +48,6 @@ public class LoginActivity extends BaseActivity<ILoginView, LoginPresenterImpl> 
 
     @Override
     public String getName() {
-
         return nameEdit.getText().toString().trim();
     }
 
